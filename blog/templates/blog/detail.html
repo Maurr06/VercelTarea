@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <title>Blog App</title>
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+    </head>
 
-  <head>
-    <meta charset="utf-8">
-    <title>Blog App</title>
-  </head>
+    <body class="bg-light">
+        <div class="container py-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="card-title text-center mb-4">
+                        {{ article.title }}
+                    </h1>
 
-  <body>
-    <p>
-      <strong>Title:</strong>
-      {{article.title}}
-    </p>
+                    <p><strong>Title:</strong> {{ article.title }}</p>
 
-    <p>
-      <strong>Content:</strong>
-      {{article.content}}
-    </p>
-    <a href="{% url 'index' %}">Back</a> |
-    <a href="{% url 'edit' article.id %}">Edit</a>
-  </body>
+                    <p><strong>Content:</strong> {{ article.content }}</p>
 
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="{% url 'index' %}" class="btn btn-secondary"
+                            >Back</a
+                        >
+                        <a
+                            href="{% url 'edit' article.id %}"
+                            class="btn btn-warning"
+                            >Edit</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS (optional for interactivity, e.g., modals) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
